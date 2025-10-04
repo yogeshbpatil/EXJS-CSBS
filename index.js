@@ -1,15 +1,20 @@
-const express = require('express');
-
+import express from 'express'
+import path from 'path';
 const app = express();
+const absPath = path.resolve('view')
 app.get("", (req, resp) => {
-    resp.send("<h1>Basic node js example</h1>")
+    resp.sendFile(absPath + "/home.html")
+})
+
+app.get("/login", (req, resp) => {
+    resp.sendFile(absPath + "/login.html")
 })
 
 app.get("/about", (req, resp) => {
-    resp.send("<h1>Thhis is About Page</h1>")
+    resp.sendFile(absPath + "/about.html")
 })
 
-app.get("/contact", (req, resp) => {
-    resp.send("<h1>Thhis is Contact Page</h1>")
+app.use((req, resp) => {
+    resp.status(404).sendFile(absPath + "/404.html")
 })
 app.listen(3200);
