@@ -3,7 +3,7 @@ import path from 'path';
 
 const app = express();
 const absPath = path.resolve('view')
-const publicPath = path.resolve('public');
+const publicPath = path.resolve('view/public'); // Fixed this line
 
 // Serve static files from public directory
 app.use(express.static(publicPath));
