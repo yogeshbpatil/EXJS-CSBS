@@ -1,14 +1,29 @@
-import mongoose from "mongoose";
-async function dbConnection() {
-  await mongoose.connect("mongodb://localhost:27017/school");
-  const schema = mongoose.Schema({
-    name: String,
-    email: String,
-    age: Number,
-  });
-  const studentsModel = mongoose.model("students", schema);
-  const result = await studentsModel.find();
-  console.log(result);
-}
+import express from "express";
+import path from "path";
 
-dbConnection();
+const app = express();
+const publicPath = path.resolve("public");
+
+app.use(express.static(publicPath));
+app.set("view engine", "ejs");
+app.get("/", (req, resp) => {
+  resp.render("list");
+});
+
+app.get("/add", (req, resp) => {
+  resp.render("add");
+});
+
+app.get("/update", (req, resp) => {
+  resp.render("update");
+});
+
+app.get("/update", (req, resp) => {
+  resp.redirect("/");
+});
+
+app.get("/add", (req, resp) => {
+  resp.redirect("/");
+});
+
+app.listen(3200);

@@ -1,20 +1,18 @@
 {
-  "name": "node-js-2025",
+  "name": "todo-list-project",
   "version": "1.0.0",
-  "description": "node js and express tutorial in hindi 2025",
+  "description": "node js project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "type": "module",
+  "author": "ail sidhu",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongodb": "^6.20.0",
-    "mongoose": "^8.19.1",
-    "morgan": "^1.10.1",
     "nodemon": "^3.1.10"
   }
 }
